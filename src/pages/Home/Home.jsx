@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import manager from "./assets/manager.png";
 import parvicon from "./assets/parv_vector.png";
+// TODO: Place your CV PDF in src/assets/ and import it here:
+import cvPDF from "./assets/cv.pdf";
 
 const FiChevronLeft = ({ className, size }) => (
     <svg
@@ -173,36 +175,42 @@ const PROJECTS = [
         title: "AirCalling Landing Page Design",
         category: "Web Design",
         color: "#e0e7ff",
+        image: null,
     },
     {
         id: 2,
         title: "Business Landing Page Design",
         category: "Web Design",
         color: "#d1fae5",
+        image: null,
     },
     {
         id: 3,
         title: "Ecom Web Page Design",
         category: "Web Design",
         color: "#ffedd5",
+        image: null,
     },
     {
         id: 4,
         title: "Banking App UI",
         category: "App Design",
         color: "#dbeafe",
+        image: null,
     },
     {
         id: 5,
         title: "Brand Identity",
         category: "Graphic Design",
         color: "#fce7f3",
+        image: null,
     },
     {
         id: 6,
         title: "User Research Dashboard",
         category: "UI/UX",
         color: "#f3e8ff",
+        image: null,
     },
 ];
 
@@ -321,6 +329,7 @@ const globalCSS = `
   .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
   .project-card { cursor: pointer; text-align: left; }
   .project-image { width: 100%; height: 320px; border-radius: 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #f3f4f6; }
+  .project-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; }
   .project-image-inner { background: rgba(255,255,255,0.5); width: 75%; height: 75%; border-radius: 0.5rem; border: 1px solid #fff; padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
   .project-img-bar { width: 50%; height: 16px; background-color: #e5e7eb; border-radius: 4px; }
   .project-img-box { width: 100%; height: 96px; background-color: #f3f4f6; border-radius: 4px; margin-top: 8px; }
@@ -359,6 +368,7 @@ const globalCSS = `
   .contact-form { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; }
   .contact-input { flex: 1; max-width: 400px; padding: 1rem 1.5rem; border: 1px solid var(--border-color); border-radius: 0.5rem; background-color: var(--bg-light); font-family: inherit; font-size: 1rem; }
   .contact-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2); }
+  .contact-success { color: var(--primary-color); font-weight: 600; font-size: 1rem; margin-bottom: 1rem; }
 
   /* Footer */
   .footer { padding: 2rem 0; text-align: center; background-color: var(--bg-light); color: var(--text-light); font-size: 0.875rem; margin-top: 3rem; }
@@ -529,6 +539,15 @@ function Navbar() {
         "Contact",
     ];
 
+    const handleDownloadCV = () => {
+        const link = document.createElement("a");
+        link.href = cvPDF;
+        link.download = "Parv_Agrawal_CV.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <nav className="container navbar">
             <div className="nav-logo-group">
@@ -556,7 +575,9 @@ function Navbar() {
                 ))}
             </div>
 
-            <button className="btn btn-primary">Download CV</button>
+            <button className="btn btn-primary" onClick={handleDownloadCV}>
+                Download CV
+            </button>
         </nav>
     );
 }
@@ -575,7 +596,7 @@ function HeroSection() {
                     I turn confusing interfaces into experiences users actually
                     enjoy. Less frustration, more interaction!
                 </p>
-                <button className="hire-me-btn">Hire Me</button>
+                {/* <button className="hire-me-btn">Hire Me</button> */}
             </div>
 
             <div className="hero-visuals">
@@ -605,7 +626,7 @@ function AboutSection() {
         <section id="aboutme" className="container about">
             <div className="about-visuals">
                 <div className="about-image">
-                    <span>Profile Image Placeholder</span>
+                    <img src={parvicon} style={{ width: "100%" }} />
                 </div>
             </div>
 
@@ -723,13 +744,21 @@ function ProjectsSection() {
                     <div key={project.id} className="project-card">
                         <div
                             className="project-image"
-                            style={{ backgroundColor: project.color }}
+                            style={
+                                !project.image
+                                    ? { backgroundColor: project.color }
+                                    : {}
+                            }
                         >
-                            <div className="project-image-inner">
-                                <div className="project-img-bar"></div>
-                                <div className="project-img-box"></div>
-                                <div className="project-img-fill"></div>
-                            </div>
+                            {project.image ? (
+                                <img src={project.image} alt={project.title} />
+                            ) : (
+                                <div className="project-image-inner">
+                                    <div className="project-img-bar"></div>
+                                    <div className="project-img-box"></div>
+                                    <div className="project-img-fill"></div>
+                                </div>
+                            )}
                         </div>
 
                         <span className="project-category">
@@ -859,6 +888,15 @@ function TestimonialsSection() {
 }
 
 function ContactSection() {
+    const [email, setEmail] = useState("");
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setEmail("");
+        setSubmitted(true);
+    };
+
     return (
         <section id="contact" className="container contact">
             <h2 className="section-title">Lets Design Together</h2>
@@ -867,12 +905,16 @@ function ContactSection() {
                 connect and create something amazing together.
             </p>
 
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            {submitted && <p className="contact-success">Submitted</p>}
+
+            <form className="contact-form" onSubmit={handleSubmit}>
                 <input
                     type="email"
                     placeholder="Enter Your Email"
                     className="contact-input"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <button type="submit" className="btn btn-primary">
                     Contact Me
