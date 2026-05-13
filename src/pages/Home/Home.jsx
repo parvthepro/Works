@@ -4,6 +4,16 @@ import parvicon from "./assets/parv_vector.png";
 // TODO: Place your CV PDF in src/assets/ and import it here:
 import cvPDF from "./assets/cv.pdf";
 
+import f1 from "./assets/f1.png";
+import hoodie from "./assets/hoodie.png";
+import vc from "./assets/vc.png";
+import machinemania from "./assets/machinemania.png";
+import sam from "./assets/sam.png";
+import techfest5days from "./assets/techfest5days.png";
+import appdesign from "./assets/appdesign.png";
+import ca from "./assets/ca.png";
+import socialmediaapp from "./assets/socialmediaapp.png";
+
 const FiChevronLeft = ({ className, size }) => (
     <svg
         className={className}
@@ -172,75 +182,96 @@ const FiPenTool = ({ className, size }) => (
 const PROJECTS = [
     {
         id: 1,
-        title: "AirCalling Landing Page Design",
-        category: "Web Design",
+        title: "Formula 1 Racing post",
+        category: "Graphic Design",
         color: "#e0e7ff",
-        image: null,
+        image: f1,
     },
     {
         id: 2,
-        title: "Business Landing Page Design",
-        category: "Web Design",
-        color: "#d1fae5",
-        image: null,
+        title: "Techfest App Design",
+        category: "App Design",
+        color: "#f3e8ff",
+        image: appdesign,
     },
     {
         id: 3,
-        title: "Ecom Web Page Design",
+        title: "Techfest CA Program Design",
         category: "Web Design",
-        color: "#ffedd5",
-        image: null,
+        color: "#f3e8ff",
+        image: ca,
     },
     {
         id: 4,
-        title: "Banking App UI",
-        category: "App Design",
-        color: "#dbeafe",
-        image: null,
+        title: "Techfest Hoodie Design",
+        category: "Graphic Design",
+        color: "#d1fae5",
+        image: hoodie,
     },
     {
         id: 5,
-        title: "Brand Identity",
+        title: "Techfest Machine Mania Post",
         category: "Graphic Design",
-        color: "#fce7f3",
-        image: null,
+        color: "#dbeafe",
+        image: machinemania,
     },
     {
         id: 6,
-        title: "User Research Dashboard",
-        category: "UI/UX",
+        title: "Social Media App Design",
+        category: "App Design",
+        color: "#d1fae5",
+        image: socialmediaapp,
+    },
+    {
+        id: 7,
+        title: "Visiting Card Design",
+        category: "Graphic Design",
+        color: "#ffedd5",
+        image: vc,
+    },
+    {
+        id: 8,
+        title: "SARC SAM Main Page Design",
+        category: "Graphic Design",
+        color: "#fce7f3",
+        image: sam,
+    },
+    {
+        id: 9,
+        title: "Techfest 5 Days To Go Post",
+        category: "Graphic Design",
         color: "#f3e8ff",
-        image: null,
+        image: techfest5days,
     },
 ];
 
 const TESTIMONIALS = [
     {
         id: 1,
-        name: "Sarah Jenkins",
-        role: "CEO, TechStart",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        name: "Aritra Bandyopadhyay",
+        role: "Web Manager, Techfest 30th Edition, IIT Bombay",
+        text: "Working with Parv has been one of the most valuable learning experiences for me. He has a rare ability to turn rough ideas into clean, thoughtful designs while explaining the reasoning behind every choice. His guidance helped me understand not just how good design looks, but how it feels for the user.",
         color: "#d1d5db",
     },
     {
         id: 2,
-        name: "Khandegar",
-        role: "Manager, Techfest",
+        name: "Aditya Khandegar",
+        role: "Media and Publicity Manager, Techfest 29th Edition, IIT Bombay",
         text: "Working with Parv was an amazing experience. His attention to detail, creativity, and understanding of user experience truly made our product stand out. The design not only looked great but also improved how our users interacted with the platform.",
         color: "#1f2937",
     },
     {
         id: 3,
-        name: "Michael Chen",
-        role: "Product Lead",
-        text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
+        name: "Mishit Sharma",
+        role: "BobaBay Founder (Early stage Start-up)",
+        text: "Collaborating with Parv was a game-changer for our startup. He understood our vision quickly and translated it into designs that felt modern, intuitive, and perfectly aligned with our brand. His attention to detail and product thinking made a real difference in how our users perceived and interacted with our platform.",
         color: "#9ca3af",
     },
     {
         id: 4,
-        name: "Emily Davis",
-        role: "Marketing Director",
-        text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        name: "Mahak Kalra",
+        role: "SwapSo.io Co-founder",
+        text: "Parv brought a strong sense of clarity, creativity, and precision to every project he worked on. What stood out most was his ability to design solutions that were not only visually polished but also practical and user-friendly",
         color: "#6b7280",
     },
 ];
@@ -327,7 +358,8 @@ const globalCSS = `
   .tab-btn:hover { border-color: var(--primary-color); }
   .tab-btn.active { background-color: var(--primary-color); color: #fff; border-color: var(--primary-color); }
   .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-  .project-card { cursor: pointer; text-align: left; }
+  .project-card { text-align: left; }
+  .project-card.clickable { cursor: pointer; }
   .project-image { width: 100%; height: 320px; border-radius: 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #f3f4f6; }
   .project-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; }
   .project-image-inner { background: rgba(255,255,255,0.5); width: 75%; height: 75%; border-radius: 0.5rem; border: 1px solid #fff; padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
@@ -337,6 +369,83 @@ const globalCSS = `
   .project-category { color: var(--primary-color); font-size: 0.875rem; font-weight: 500; display: block; margin-bottom: 0.5rem; }
   .project-title { font-size: 1.25rem; font-weight: 700; transition: color 0.3s; }
   .project-card:hover .project-title { color: var(--primary-color); }
+
+  /* Project Modal */
+  .project-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 2rem;
+    animation: modalFadeIn 0.25s ease;
+    cursor: zoom-out;
+  }
+  .project-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 95vw;
+    max-height: 95vh;
+    animation: modalZoomIn 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .project-modal-image {
+    max-width: 95vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    cursor: default;
+  }
+  .project-modal-caption {
+    text-align: center;
+    color: #fff;
+    cursor: default;
+  }
+  .project-modal-category {
+    color: #e9d5ff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .project-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .project-modal-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    transition: transform 0.2s;
+  }
+  .project-modal-close:hover { transform: scale(1.1); }
+  @keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes modalZoomIn {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
   /* Testimonials */
   .testimonials { padding: 6rem 0; overflow: hidden; text-align: center; }
@@ -349,7 +458,7 @@ const globalCSS = `
   .quote-mark.start { top: -1rem; left: -0.5rem; }
   .quote-mark.end { bottom: 1.5rem; right: 0; transform: rotate(180deg); }
   .carousel-text { color: var(--text-gray); margin-bottom: 1rem; padding-left: 1rem; position: relative; z-index: 10; font-size: 0.875rem; line-height: 1.6; }
-  .carousel-author { padding-left: 1rem; }
+  .carousel-author { padding-left: 1rem; width: 90%; }
   .carousel-name { font-weight: 700; font-size: 1.125rem; }
   .carousel-role { font-size: 0.875rem; color: var(--text-light); }
   
@@ -460,18 +569,111 @@ const globalCSS = `
   }
 
   @media (max-width: 768px) {
+    .container { padding: 0 1.25rem; }
+
+    /* Navbar */
+    .navbar { padding: 1rem 0; gap: 0.75rem; flex-wrap: wrap; justify-content: space-between; }
     .nav-links { display: none; }
-    .hero { flex-direction: column; text-align: center; padding: 3rem 0; }
-    .hero-content { padding-right: 0; margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; }
-    .hero-title { font-size: 3.5rem; }
-    .about { flex-direction: column; text-align: center; padding: 3rem 0; }
+    .nav-logo-sub { display: none; }
+
+    /* Section headings */
+    .section-title { font-size: 2.25rem; }
+
+    /* Hero */
+    .hero { flex-direction: column; text-align: center; padding: 2.5rem 0; gap: 2rem; }
+    .hero-content { padding-right: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .hero-title { font-size: 3rem; text-align: center; }
+    .hero-title br { display: none; }
+    .hero-desc { max-width: 100%; }
+    .hero-visuals { width: 100%; }
+    .hero-avatar-wrapper { width: 100%; max-width: 340px; height: auto; aspect-ratio: 450 / 430; }
+
+    /* About */
+    .about { flex-direction: column; text-align: center; padding: 3rem 0; gap: 2rem; }
+    .about-visuals { width: 100%; }
+    .about-image { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1 / 1; }
+    .about-content { width: 100%; }
+    .about-title { font-size: 2rem; }
+
+    /* Services / Projects */
+    .services { padding: 3rem 0; }
     .services-grid { grid-template-columns: 1fr; }
+    .projects { padding: 3rem 0; }
     .projects-grid { grid-template-columns: 1fr; }
-    .carousel-card { flex-direction: column; text-align: center; }
+    .project-image { height: auto; aspect-ratio: 4 / 3; }
+
+    /* Testimonials */
+    .testimonials { padding: 3rem 0; }
+    .carousel-main-container { padding: 0 0.5rem; }
+    .carousel-wrapper { height: 360px; }
+    .carousel-card { flex-direction: column; text-align: center; padding: 1.5rem; gap: 1rem; }
     .carousel-content { text-align: center; }
     .carousel-author, .carousel-text { padding-left: 0; }
-    .contact-form { flex-direction: column; align-items: center; }
+    .carousel-arrow { width: 40px; height: 40px; }
+    .carousel-arrow.left { left: -0.5rem; }
+    .carousel-arrow.right { right: -0.5rem; }
+
+    /* Contact */
+    .contact { padding: 3rem 0; }
+    .contact-form { flex-direction: column; align-items: stretch; }
     .contact-input { max-width: 100%; width: 100%; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+
+    /* Navbar */
+    .nav-logo-icon { width: 40px; height: 40px; }
+    .nav-logo-name { font-size: 0.8rem; }
+    .btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
+    /* Section headings */
+    .section-title { font-size: 1.75rem; }
+    .section-subtitle { font-size: 0.85rem; margin-bottom: 2rem; }
+
+    /* Hero */
+    .hero { padding: 1.5rem 0; }
+    .hero-greeting { font-size: 1rem; }
+    .hero-name { font-size: 1.5rem; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-desc { font-size: 0.9rem; }
+    .hero-avatar-wrapper { max-width: 260px; }
+    .social-icons { gap: 1.25rem; }
+
+    /* About */
+    .about-image { max-width: 240px; }
+    .about-title { font-size: 1.75rem; }
+    .about-desc { font-size: 0.9rem; }
+
+    /* Services */
+    .service-card { padding: 1.5rem; }
+    .service-title { font-size: 1.1rem; }
+    .service-icon-wrapper { width: 56px; height: 56px; margin-bottom: 1rem; }
+
+    /* Projects */
+    .tabs { gap: 0.5rem; margin-bottom: 2.5rem; }
+    .tab-btn { padding: 0.4rem 1rem; font-size: 0.8rem; }
+    .projects-grid { gap: 1.5rem; }
+    .project-title { font-size: 1.1rem; }
+
+    /* Testimonials */
+    .carousel-wrapper { height: 400px; }
+    .carousel-card { padding: 1.25rem; }
+    .carousel-img { width: 96px; height: 96px; }
+    .carousel-text { font-size: 0.85rem; }
+    .carousel-name { font-size: 1rem; }
+    .carousel-arrow { width: 36px; height: 36px; }
+    .carousel-arrow.left { left: -0.25rem; }
+    .carousel-arrow.right { right: -0.25rem; }
+    .dot { width: 24px; height: 10px; }
+
+    /* Contact */
+    .contact-input { padding: 0.875rem 1.25rem; font-size: 0.9rem; }
+
+    /* Project modal */
+    .project-modal-overlay { padding: 1rem; }
+    .project-modal-close { top: 1rem; right: 1rem; width: 40px; height: 40px; }
+    .project-modal-title { font-size: 1.2rem; }
   }
 `;
 
@@ -604,10 +806,18 @@ function HeroSection() {
                     <img src={manager} className="hero-image" />
                 </div>
                 <div className="social-icons">
-                    <FaFacebook className="social-icon" size={24} />
-                    <FaTwitter className="social-icon" size={24} />
-                    <FaInstagram className="social-icon" size={24} />
-                    <FaLinkedin className="social-icon" size={24} />
+                    <a
+                        href="https://www.instagram.com/parv_iitb?igsh=MWJsdDFyYnhwYnRuYg=="
+                        target="_blank"
+                    >
+                        <FaInstagram className="social-icon" size={24} />
+                    </a>
+                    <a
+                        href="www.linkedin.com/in/parv-agrawal-283840273"
+                        target="_blank"
+                    >
+                        <FaLinkedin className="social-icon" size={24} />
+                    </a>
                 </div>
             </div>
         </section>
@@ -713,6 +923,7 @@ function ServicesSection() {
 function ProjectsSection() {
     const tabs = ["All", "UI/UX", "Web Design", "App Design", "Graphic Design"];
     const [activeTab, setActiveTab] = useState("All");
+    const [selectedProject, setSelectedProject] = useState(null);
 
     const filteredProjects = PROJECTS.filter(
         (p) => activeTab === "All" || p.category === activeTab,
@@ -741,7 +952,13 @@ function ProjectsSection() {
 
             <div className="projects-grid">
                 {filteredProjects.map((project) => (
-                    <div key={project.id} className="project-card">
+                    <div
+                        key={project.id}
+                        className={`project-card ${project.image ? "clickable" : ""}`}
+                        onClick={() =>
+                            project.image && setSelectedProject(project)
+                        }
+                    >
                         <div
                             className="project-image"
                             style={
@@ -768,7 +985,59 @@ function ProjectsSection() {
                     </div>
                 ))}
             </div>
+
+            {selectedProject && (
+                <ProjectModal
+                    project={selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                />
+            )}
         </section>
+    );
+}
+
+function ProjectModal({ project, onClose }) {
+    useEffect(() => {
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        const handleEsc = (e) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", handleEsc);
+
+        return () => {
+            document.body.style.overflow = prevOverflow;
+            window.removeEventListener("keydown", handleEsc);
+        };
+    }, [onClose]);
+
+    const stop = (e) => e.stopPropagation();
+
+    return (
+        <div className="project-modal-overlay" onClick={onClose}>
+            <button
+                className="project-modal-close"
+                onClick={onClose}
+                aria-label="Close"
+            >
+                ×
+            </button>
+            <div className="project-modal-content">
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-modal-image"
+                    onClick={stop}
+                />
+                <div className="project-modal-caption" onClick={stop}>
+                    <span className="project-modal-category">
+                        {project.category}
+                    </span>
+                    <h3 className="project-modal-title">{project.title}</h3>
+                </div>
+            </div>
+        </div>
     );
 }
 
